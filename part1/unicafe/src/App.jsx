@@ -16,8 +16,8 @@ const Button = ({onClick, text}) => {
 
   const Statistics = ({good, neutral, bad}) => {
     const total = good + bad + neutral;
-    const avg = (good + (bad * - 1)) / total;
-    const pos = (good / total) * 100;
+    const avg = ((good + (bad * - 1)) / total).toFixed(2);
+    const pos = ((good / total) * 100).toFixed(2);
 
     if(total == 0) {
       return(
@@ -35,7 +35,7 @@ const Button = ({onClick, text}) => {
           <StatisticsLine text="bad" value={bad}/>
           <StatisticsLine text="total" value={total}/>
           <StatisticsLine text="average" value={avg}/>
-          <StatisticsLine text="percentage" value={pos}/>
+          <StatisticsLine text="percentage" value={`${pos}%`}/>
         </tbody>
       </table>
   )}
